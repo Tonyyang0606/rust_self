@@ -17,3 +17,20 @@ fn is_a_color_word(attempt: &str) -> bool {
 ```
 
 The function `is_a_color_word`needs a  `&str`, but word is a `String` type. We can use & to do the conversion
+
+
+
+```rust
+fn main() {
+// use + to Concatenation string
+  let s1 = String::from("tic");
+  let s2 = String::from("tac");
+  let s3 = String::from("toe");
+  let s = s1 + "-" + &s2 + "-" + &s3;
+
+  println!("{},{},{}",s,s2,s3);
+
+}
+```
+
+We cannot print s1, because s1's ownership is taken.
