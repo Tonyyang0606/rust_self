@@ -18,6 +18,8 @@ fn is_a_color_word(attempt: &str) -> bool {
 
 The function `is_a_color_word`needs a  `&str`, but word is a `String` type. We can use & to do the conversion
 
+***
+
 
 
 ```rust
@@ -34,3 +36,46 @@ fn main() {
 ```
 
 We cannot print s1, because s1's ownership is taken.
+
+***
+
+
+
+```rust
+fn compose_me(input: &str) -> String {
+    // TODO: Add " world!" to the string! There's multiple ways to do this!
+    
+    let mut result=String::from(" world!");
+    result=input.to_string()+&result;//The + operator needs a string type on the left side,needs &str on the // right side
+    // result=input+&result cannot compile.  result=input.to_string()+ result cannot compile,too
+    result
+}
+```
+
+***
+
+functions about  &str and String
+
+```rust
+fn string_slice(arg: &str) {
+    println!("{}", arg);
+}
+fn string(arg: String) {
+    println!("{}", arg);
+}
+
+fn main() {
+    string_slice("blue");  // &str 
+    string("red".to_string());  // String 
+    string(String::from("hi"));  // String 
+    string("rust is fun!".to_owned());  // String 
+    string("nice weather".into());  // String 
+    string_slice(&format!("Interpolation {}", "Station"));  // &str 
+    string_slice(&String::from("abc")[0..1]);  // &str 
+    string_slice("  hello there ".trim());  // &str 
+    string("Happy Monday!".to_string().replace("Mon", "Tues"));  // String 
+    string("mY sHiFt KeY iS sTiCkY".to_lowercase());  // String 
+}
+
+```
+
