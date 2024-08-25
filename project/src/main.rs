@@ -1,12 +1,17 @@
-fn main() {
-    let word = String::from("green"); // Try not changing this line :)
-    if is_a_color_word(&word) {
-        println!("That is a color word I know!");
-    } else {
-        println!("That is not a color word I know.");
+mod front_of_house {
+   pub mod hosting {
+       pub fn add_to_waitlist() {}
     }
 }
 
-fn is_a_color_word(attempt: &str) -> bool {
-    attempt == "green" || attempt == "blue" || attempt == "red"
+pub fn eat_at_restaurant() {
+    // 绝对路径
+    crate::front_of_house::hosting::add_to_waitlist();
+
+    // 相对路径
+    front_of_house::hosting::add_to_waitlist();
+}
+fn main(){
+    eat_at_restaurant();
+    println!("Success!");
 }
