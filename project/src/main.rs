@@ -1,17 +1,11 @@
-mod front_of_house {
-   pub mod hosting {
-       pub fn add_to_waitlist() {}
-    }
-}
+fn main() {
+    use std::collections::HashMap;
 
-pub fn eat_at_restaurant() {
-    // 绝对路径
-    crate::front_of_house::hosting::add_to_waitlist();
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
 
-    // 相对路径
-    front_of_house::hosting::add_to_waitlist();
-}
-fn main(){
-    eat_at_restaurant();
-    println!("Success!");
+    scores.entry(String::from("Yellow")).or_insert(50);
+    scores.entry(String::from("Blue")).or_insert(50);
+
+    println!("{scores:?}");
 }
