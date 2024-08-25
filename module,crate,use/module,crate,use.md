@@ -41,4 +41,4 @@ pub fn eat_at_restaurant() {
 Two ways to use `self`
 
 - `use self::xxx`，load `xxx` in current mod, `self` can be ignored
-- `use xxx::{self, yyy}`，表示，load current path mode `xxx`  itself，and  `yyy`
+- `use xxx::{self, yyy}`，means load current path mode `xxx`  itself，and  `yyy`
