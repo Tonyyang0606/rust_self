@@ -1,11 +1,14 @@
+struct Point {
+    x: i32,
+    y: i32,
+}
+
 fn main() {
-    use std::collections::HashMap;
+    let y: Option<Point> = Some(Point { x: 100, y: 200 });
 
-    let mut scores = HashMap::new();
-    scores.insert(String::from("Blue"), 10);
-
-    scores.entry(String::from("Yellow")).or_insert(50);
-    scores.entry(String::from("Blue")).or_insert(50);
-
-    println!("{scores:?}");
+    match &y {
+        Some(p) => println!("Co-ordinates are {},{} ", p.x, p.y),
+        _ => panic!("no match!"),
+    }
+    y; // Fix without deleting this line.
 }

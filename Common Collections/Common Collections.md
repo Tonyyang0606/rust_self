@@ -92,3 +92,69 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
 }
 ```
 
+### Vector
+
+one problem that meets in the rustlings
+
+```rust
+// options2.rs
+//
+// Execute `rustlings hint options2` or use the `hint` watch subcommand for a
+// hint.
+
+
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn simple_option() {
+        let target = "rustlings";
+        let optional_target = Some(target);
+
+        // TODO: Make this an if let statement whose value is "Some" type
+      if let Some(word) = optional_target {
+            assert_eq!(word, target);
+        }
+    }
+
+    #[test]
+    fn layered_option() {
+        let range = 10;
+        let mut optional_integers: Vec<Option<i8>> = vec![None];
+
+        for i in 1..(range + 1) {
+            optional_integers.push(Some(i));
+        }
+
+        let mut cursor = range;
+
+        // TODO: make this a while let statement - remember that vector.pop also
+        // adds another layer of Option<T>. You can stack `Option<T>`s into
+        // while let and if let.
+       while let Some(Some( integer ))= optional_integers.pop() {
+            assert_eq!(integer, cursor);
+            cursor -= 1;
+        }
+
+        assert_eq!(cursor, 0);
+    }
+}
+
+```
+
+notice that in the Struct [std](https://doc.rust-lang.org/std/index.html)::[vec](https://doc.rust-lang.org/std/vec/index.html)::Vec
+
+`pub fn [pop](&mut self) -> Option<T>`
+
+Removes the last element from a vector and returns it, or [`None`](https://doc.rust-lang.org/std/option/enum.Option.html#variant.None) if it is empty.
+
+##### Examples
+
+```
+let mut vec = vec![1, 2, 3];
+assert_eq!(vec.pop(), Some(3));
+assert_eq!(vec, [1, 2]);
+```
+
+it return a option<T>, so integer need to be nested twice
+

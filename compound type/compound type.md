@@ -57,3 +57,12 @@ impl State {
 
 
 
+### Vector
+
+add elements to the end of the vector
+
+```rust
+let mut v = Vec::new();
+v.push(1);
+```
+
