@@ -1,14 +1,15 @@
-struct Point {
-    x: i32,
-    y: i32,
+pub struct ReportCard<T> {
+    pub grade:T,
+    pub student_name: String,
+    pub student_age: u8,
 }
 
-fn main() {
-    let y: Option<Point> = Some(Point { x: 100, y: 200 });
-
-    match &y {
-        Some(p) => println!("Co-ordinates are {},{} ", p.x, p.y),
-        _ => panic!("no match!"),
+impl <T> ReportCard <T>{
+    pub fn print(&self) -> String {
+        format!("{} ({}) - achieved a grade of {}",
+            &self.student_name, &self.student_age, &self.grade)
     }
-    y; // Fix without deleting this line.
+}
+fn main(){
+
 }
